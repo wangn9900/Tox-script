@@ -250,7 +250,7 @@ EOF
         cp custom_inbound.json /etc/tox/
     fi
     # 替换脚本下载地址
-    curl -o /usr/bin/tox -Ls https://raw.githubusercontent.com/wangn9900/V2bX-script/master/tox.sh
+    curl -o /usr/bin/tox -Ls https://raw.githubusercontent.com/wangn9900/Tox-script/main/tox.sh
     chmod +x /usr/bin/tox
     if [ ! -L /usr/bin/v2bx ]; then
         ln -s /usr/bin/tox /usr/bin/v2bx
@@ -415,7 +415,7 @@ EOF
         read -rp "检测到你为第一次安装tox,是否自动直接生成配置文件？(y/n): " if_generate
         if [[ $if_generate == [Yy] ]]; then
             # 替换初始化脚本地址
-            curl -o ./initconfig.sh -Ls https://raw.githubusercontent.com/wangn9900/V2bX-script/master/initconfig.sh
+            curl -o ./initconfig.sh -Ls https://raw.githubusercontent.com/wangn9900/Tox-script/main/initconfig.sh
             source initconfig.sh
             rm initconfig.sh -f
             generate_config_file

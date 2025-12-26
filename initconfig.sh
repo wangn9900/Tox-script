@@ -34,6 +34,7 @@ add_node_config() {
         echo -e "${green}6. Trojan${plain}"  
         echo -e "${green}7. Tuic${plain}"
         echo -e "${green}8. AnyTLS${plain}"
+        echo -e "${green}9. TQP${plain}"
         read -rp "请输入：" NodeType
         case "$NodeType" in
             1 ) NodeType="shadowsocks" ;;
@@ -44,6 +45,7 @@ add_node_config() {
             6 ) NodeType="trojan" ;;
             7 ) NodeType="tuic" ;;
             8 ) NodeType="anytls" ;;
+            9 ) NodeType="tqp" ;;
             * ) NodeType="shadowsocks" ;;
         esac
     fi
@@ -74,7 +76,7 @@ add_node_config() {
         esac
         read -rp "请输入节点证书域名(example.com)：" certdomain
         if [ "$certmode" != "http" ]; then
-            echo -e "${red}请手动修改配置文件后重启V2bX！${plain}"
+            echo -e "${red}请手动修改配置文件后重启Tox！${plain}"
         fi
     fi
     ipv6_support=$(check_ipv6_support)
@@ -119,7 +121,7 @@ EOF
 }
 
 generate_config_file() {
-    echo -e "${yellow}V2bX 配置文件生成向导${plain}"
+    echo -e "${yellow}Tox 配置文件生成向导${plain}"
     echo -e "${red}请阅读以下注意事项：${plain}"
     echo -e "${red}1. 目前该功能正处测试阶段${plain}"
     echo -e "${red}2. 生成的配置文件会保存到 /etc/tox/config.json${plain}"
@@ -406,6 +408,6 @@ acl:
 masquerade:
   type: 404
 EOF
-    echo -e "${green}V2bX 配置文件生成完成,正在重新启动服务${plain}"
+    echo -e "${green}Tox 配置文件生成完成,正在重新启动服务${plain}"
     tox restart
 }
