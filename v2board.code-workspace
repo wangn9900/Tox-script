@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "../../v2board"
+		},
+		{
+			"path": "../../V2bX"
+		},
+		{
+			"path": "../../sing-box_mod"
+		},
+		{
+			"path": "../../mihomo"
+		},
+		{
+			"path": "../../MOMclash"
+		},
+		{
+			"path": "../../TianClash"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../V2bX-script"
+		}
+	],
+	"settings": {}
+}

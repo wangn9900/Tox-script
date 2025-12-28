@@ -161,6 +161,23 @@ install_V2bX() {
     fi
     chmod +x tox
     mkdir /etc/tox/ -p
+    
+    # Download config templates from V2bX-TQP repository
+    echo -e "${yellow}正在下载配置文件模板...${plain}"
+    wget -q -O config.json https://raw.githubusercontent.com/wangn9900/V2bX-TQP/tqp-main/example/config.json
+    wget -q -O dns.json https://raw.githubusercontent.com/wangn9900/V2bX-TQP/tqp-main/example/dns.json
+    wget -q -O route.json https://raw.githubusercontent.com/wangn9900/V2bX-TQP/tqp-main/example/route.json
+    wget -q -O custom_outbound.json https://raw.githubusercontent.com/wangn9900/V2bX-TQP/tqp-main/example/custom_outbound.json
+    wget -q -O custom_inbound.json https://raw.githubusercontent.com/wangn9900/V2bX-TQP/tqp-main/example/custom_inbound.json
+    
+    # Download geoip and geosite if not present
+    if [[ ! -f geoip.dat ]]; then
+        wget -q -O geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+    fi
+    if [[ ! -f geosite.dat ]]; then
+        wget -q -O geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+    fi
+    
     cp geoip.dat /etc/tox/
     cp geosite.dat /etc/tox/
     if [[ x"${release}" == x"alpine" ]]; then
